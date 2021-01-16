@@ -1,0 +1,20 @@
+footer{
+    background-color: rgb(88, 88, 88);
+    color: white;
+    width: 100%;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+logo{
+    color: white;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+span{ 
+    margin: 8px 0;
+    padding: 1px;
+}

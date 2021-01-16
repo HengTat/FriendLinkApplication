@@ -1,0 +1,47 @@
+<div class="content">
+    <mat-card>
+    <mat-icon style="font-size: 65px; align-self: center;">forum</mat-icon><br><br>
+    <h1 style="font-weight: bolder; font-size: 40px;">Updates</h1>
+
+    <form id="outer">
+        <div class="alert alert-danger" *ngIf="email.touched && !email.valid">Email is invalid</div><br>
+        <label class="inner">My Email :&nbsp;&nbsp;</label>
+        <mat-form-field appearance="fill" [style.width.px]=400>
+        <input matInput class="inner" #email="ngModel" type="text" size="50" name="myemail" [(ngModel)]="myemail" required>
+        </mat-form-field>
+        <div class="inner">
+        <button [disabled]="!email.valid" class="cardbutton" variant="primary" style="color: white" (click)="getupdates()"><span> Get Updates</span> </button>
+        </div>
+    </form>
+    </mat-card>
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"class="full-width-table">
+            <ng-container matColumnDef="friendemail" >
+                <th mat-header-cell *matHeaderCellDef> Friend's Email </th>
+                <td mat-cell *matCellDef="let element"> {{element.friendemail}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="description" >
+                <th mat-header-cell *matHeaderCellDef>
+                    <div style="float: left; padding-top: 13px;">
+                        Updates
+                    </div>
+                    <div style="float: right;">
+                        <mat-form-field >
+                            <mat-label style="color: grey;"class="inner">Search : &nbsp;</mat-label> 
+                            <input  style="color: grey;" matInput class="inner" type="text" (keyup)="applyfilter($event.target.value)"/>
+                        </mat-form-field>
+                    </div>
+                </th>
+                <td mat-cell *matCellDef="let element"> 
+                    {{element.description}} 
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
+
+    </div>
+</div>

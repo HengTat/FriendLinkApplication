@@ -1,0 +1,80 @@
+<div class="content" role="main">
+    <mat-card>
+    <mat-icon style="font-size: 65px; align-self: center;">contact_mail</mat-icon><br><br><br>
+    <h1 style="font-weight: bolder; font-size: 40px;">Friend List</h1>
+
+    <form>
+        <div class="alert alert-danger" *ngIf="email.touched && !email.valid">Email is invalid</div><br>
+        <label>My Email : &nbsp;</label>
+        <mat-form-field appearance="fill" [style.width.px]=400>
+            <input type="text" matInput size="50" #email="ngModel" style="color: grey;" name="myemail"[(ngModel)]="myemail" required email>         
+        </mat-form-field>
+        <button [disabled]="!email.valid" class="cardbutton" variant="primary" style="color: white" (click)="refreshfriendlist()"><span>Friends List</span></button>
+    </form>
+    </mat-card>
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"class="full-width-table">
+
+            <ng-container matColumnDef="friendemail" >
+                <th mat-header-cell *matHeaderCellDef> Friend's Email </th>
+                <td mat-cell *matCellDef="let element"> {{element.friendemail}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="subscription">
+                <th mat-header-cell *matHeaderCellDef> Subscribed </th>
+                <td mat-cell *matCellDef="let element"> 
+                    <div *ngIf="!element.subscription">
+                        <mat-icon  style="font-size: 30px; align-self: center;">clear</mat-icon>
+                    </div> 
+                    <div *ngIf="element.subscription">
+                        <mat-icon  style="font-size: 30px; align-self: center;">done_all</mat-icon>
+                </div>
+                    </td>
+            </ng-container>
+
+            <ng-container matColumnDef="block" >
+                <th mat-header-cell *matHeaderCellDef style="text-align: left;" > <div id="outer"> 
+                    <div class="inner" style="float: left;padding-top: 13px;">Block</div>
+                    <div class="inner" style="float: right; ">
+                        <mat-form-field  >
+                            <mat-label style="color: grey;"class="inner">Search : &nbsp;</mat-label> 
+                            <input  style="color: grey;" matInput class="inner" type="text" (keyup)="applyfilter($event.target.value)"/>
+                        </mat-form-field>
+                    </div>
+                    </div>
+                </th>
+                <td mat-cell *matCellDef="let element"> 
+                    <div id="outer" style="padding-top: 10px; vertical-align: middle; text-align: center;">
+                        <div style="float: left; padding-top: 10px;">
+                            <div *ngIf="!element.block" class="inner" style="align-items: center; justify-content: center;">
+                                <mat-icon style="font-size: 30px; align-self: center; ">clear</mat-icon> 
+                            </div>
+                            <div *ngIf="element.block" class="inner">
+                                    <mat-icon  style="font-size: 30px; align-self: center;">done_all</mat-icon>
+                            </div>
+                        </div> 
+                        <div *ngIf="!element.subscription" class="inner">
+                            <button class="cardbutton" variant="primary" style="color: white" (click)="changesubscription(element.friendemail,element.subscription)"><span>Subscribe </span></button>
+                        </div >
+                        <div *ngIf="element.subscription" class="inner">
+                            <button class="cardbutton" variant="primary" style="color: white ;background-color: red;" (click)="changesubscription(element.friendemail,element.subscription)"> <span>Unsubscribe </span></button>
+                        </div>
+                        <div *ngIf="element.block" class="inner">
+                            <button class="cardbutton" variant="primary" style="color: white" (click)="changeblock(element.friendemail,element.block)"><span>Unblock</span></button> 
+                        </div> 
+                        <div *ngIf="!element.block" class="inner">
+                            <button  class="cardbutton" variant="primary" style="color: white; background-color: red;" (click)="changeblock(element.friendemail,element.block)"><span>Block</span></button> 
+                        </div> 
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
+    </div>
+</div>
+
+
+

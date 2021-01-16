@@ -1,0 +1,29 @@
+<div class="content">
+<mat-card>
+    <mat-icon style="font-size: 65px; align-self: center;">cast</mat-icon><br><br>
+    <h1 style="font-weight: bolder; font-size: 40px;">Post Updates</h1>
+    <form #postupdateform="ngForm" style="align-content: center;justify-content: center; text-align: center;" (ngSubmit)="postupdates(postupdateform)">
+        <div class="alert alert-danger" *ngIf="email.touched && !email.valid">Email is invalid</div><br>
+        My Email : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <mat-form-field [style.width.px]=320 >
+        <input matInput  type="text" size="45" name="myemail" id="email" #email="ngModel" [(ngModel)]="myemail"required email> 
+        </mat-form-field>
+        <div class="alert alert-danger" *ngIf="secondemail.touched && !secondemail.valid">Email is invalid</div><br>
+        <br>
+        Friend's Email : &nbsp;
+        <mat-form-field [style.width.px]=320 >
+        <input matInput type="text" size="45" name="friendemail" id="secondemail" #secondemail="ngModel" [(ngModel)]="friendemail" required email>
+        </mat-form-field>
+        <div class="alert alert-danger" *ngIf="update.touched && !update.valid">Description is invalid</div><br>
+        <br>
+        <mat-form-field  [style.width.px]=420>
+            <mat-label>Description: </mat-label>
+            <textarea matInput rows="6" cols="80" placeholder="Enter Updates..." id="update" #update="ngModel" name="description" [(ngModel)]="description" required></textarea><br><br>
+        </mat-form-field><br><br>
+        <button class="cardbutton" variant="primary" style="color: white"> Post Updates<mat-icon>chevron_right</mat-icon></button>
+    </form> 
+</mat-card>
+</div>
+<simple-notifications></simple-notifications>
+
+

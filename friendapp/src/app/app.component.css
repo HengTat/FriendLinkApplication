@@ -1,0 +1,82 @@
+mat-sidenav-container{
+    height: 100%;
+}
+
+mat-sidenav, mat-sidenav-content{
+    padding: 16px;
+    background-color: rgb(245, 245, 245);
+}
+
+mat-sidenav{
+    background-color: rgb(65, 65, 65);
+    width: 350px;
+}
+
+.menucard {
+    border-radius: 4px;
+    background-color:  rgb(65, 65, 65);
+    color: white;
+    height: 40px;
+    width: 100%;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+    text-decoration: white;
+  }
+
+  .menucard:visited{
+      color: white;
+  }
+  
+  footer {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+    background-color: rgb(65, 65, 65);
+  }
+
+  navlogo{
+    position: absolute;
+    bottom: 0;
+  }
+
+.fixed-header {
+  position: fixed;
+  z-index:999;
+  height: 50px;
+}
+
+#frugalmap {
+  height: 300px;
+  width: 100%;
+  top: 50px;
+  position: relative;
+}
+
+.mat-elevation-z5 {
+  position: relative;
+}
+
+.sticky {
+  position: fixed;
+  top: 50px;
+}
+
+#outer
+{
+    width:100%;
+    text-align: center;
+}
+
+.inner
+{
+    display: inline-block;
+}
+
+

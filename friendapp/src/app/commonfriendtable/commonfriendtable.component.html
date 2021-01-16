@@ -1,0 +1,88 @@
+<div class="content">
+  <mat-card>
+    <mat-icon style="font-size: 65px; align-self: center">people_outline</mat-icon
+    ><br /><br /><br/>
+    <h1 style="font-weight: bolder; font-size: 40px">Common Friends</h1><br>
+          <div class="alert alert-danger" *ngIf="(secondemail.touched && !secondemail.valid) || (email.touched && !email.valid)">Email is invalid</div>
+
+    <form #commonfriendform="ngForm" (ngSubmit)="refresh()">
+      <label>My Email : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+      <mat-form-field [style.width.px]="250">
+        <input
+          matInput
+          #email="ngModel"
+          id="email"
+          type="email"
+          size="50"
+          name="myemail"
+          [(ngModel)]="myemail"
+          required
+          email
+        /> 
+        </mat-form-field
+      >&nbsp;&nbsp;
+      <label>Friend Email: &nbsp;</label>
+      <mat-form-field [style.width.px]="250">
+        <input
+          matInput
+          type="email"
+          size="50"
+          name="email"
+          #secondemail="ngModel"
+          [(ngModel)]="friendemail"
+          required
+          email
+        />
+      </mat-form-field>
+      <button
+        class="cardbutton"
+        variant="primary"
+        style="color: white"
+        [disabled]="!commonfriendform.valid"
+      >
+        <span>Friends</span>
+      </button>
+    </form>
+  </mat-card>
+  <div class="mat-elevation-z8">
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      class="mat-elevation-z8"
+      class="full-width-table"
+    >
+      <ng-container matColumnDef="friendemail">
+        <th mat-header-cell *matHeaderCellDef>
+          <div style="float: left; padding-top: 10px">
+            <mat-icon
+              style="font-size: 23px; align-self: center; padding-top: 3px"
+              >people_outline</mat-icon
+            >
+            &nbsp; Common Friends
+          </div>
+          <div style="float: right">
+            <mat-form-field>
+              <mat-label style="color: grey" class="inner"
+                >Search : &nbsp;</mat-label
+              >
+              <input
+                style="color: grey"
+                matInput
+                class="inner"
+                type="text"
+                (keyup)="applyfilter($event.target.value)"
+              />
+            </mat-form-field>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.friendemail }}</td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator
+      [pageSizeOptions]="[10, 20, 50]"
+      showFirstLastButtons
+    ></mat-paginator>
+  </div>
+</div>

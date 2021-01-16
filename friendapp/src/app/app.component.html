@@ -1,0 +1,173 @@
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+  }
+
+  .toolbar img {
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo {
+    height: 40px;
+    margin: 0 16px;
+  }
+
+
+  .content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  svg.material-icons {
+    height: 24px;
+    width: auto;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .card {
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    height: 40px;
+    width: 300px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }
+
+  .cardbutton {
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: rgb(54, 120, 219);
+    height: 40px;
+    width: 300px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }
+
+  .card-container .card:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .card.card-small {
+    height: 16px;
+    width: 168px;
+  }
+
+  .card-container .card:not(.highlight-card) {
+    cursor: pointer;
+  }
+
+  .card-container .card:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  }
+
+  .card-container .card:not(.highlight-card):hover .material-icons path {
+    fill: rgb(105, 103, 103);
+  }
+
+  .card.highlight-card {
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+    border: none;
+    width: auto;
+    min-width: 30%;
+    position: relative;
+  }
+
+  .card.card.highlight-card span {
+    margin-left: 60px;
+  }
+
+</style>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<base href="/">
+<mat-sidenav-container>
+
+  <mat-sidenav mode ="side"[(opened)]="opened" > 
+    <div class="card-container"><h2 style="color: white;">MENU</h2> <br><br>
+      <a class="menucard" href="./">Link Accounts</a>
+      <a class="menucard" href="./friendlist/">Friend List</a>
+      <a class="menucard" href="./updates/">Updates</a>
+      <a class="menucard" href="./postupdates/">Post Update</a>
+      <a class="menucard" href="./commonfriend/">Common Friends</a>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="toolbar" role="banner" [ngClass]="{'mat-elevation-z5' : true, 'sticky' : isSticky}">&nbsp;&nbsp;&nbsp;
+        <mat-icon (click)="opened =! opened">menu</mat-icon>
+       &nbsp;&nbsp;&nbsp;
+      <span><h2><mat-icon >connect_without_contact</mat-icon>&nbsp;Friend LINK</h2></span>
+      <div class="spacer"></div>
+    </div>
+    
+    <router-outlet></router-outlet>
+    <footer class="page-footer font-small blue pt-4"></footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+  
+<app-footer></app-footer>
+
+
+

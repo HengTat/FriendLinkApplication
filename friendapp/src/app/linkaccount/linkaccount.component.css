@@ -1,0 +1,40 @@
+.menucard {
+    border-radius: 4px;
+    background-color:  rgb(65, 65, 65);
+    color: white;
+    height: 40px;
+    width: 100%;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+    text-decoration: none;
+}
+
+  
+footer {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  line-height: 20px;
+  background-color: rgb(65, 65, 65);
+}
+
+
+mat-card{
+  background-color: rgb(243, 243, 243);
+  color: rgb(88, 88, 88);
+  width:600px;
+  margin-top: 160px;
+  align-content: center;
+  padding-left: 10px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
