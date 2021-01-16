@@ -16,3 +16,6 @@ Run npm update to update modules</br>
 Run ng serve for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files. </br>
 
 Built using Angular CLI version 11.0.5.
+
+<h3>Screen Shots</h3>
+
