@@ -16,12 +16,12 @@ Run npm update to update modules</br>
 Run ng serve for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files. </br>
 
 Notes: 
-Coniditions to receive updates from friend:
-1.Must have a friend link
-2.Must be suscribed
-3.Must be unblocked
+Coniditions to receive updates from friend: </br>
+1.Must have a friend link  </br>
+2.Must be suscribed  </br>
+3.Must be unblocked  </br>
 
-Built using Angular CLI version 11.0.5.
+Built using Angular CLI version 11.0.5.  </br>
 
 <h3>Screen Shots</h3>
 <img src="https://user-images.githubusercontent.com/60685286/104806313-91477600-5811-11eb-84b7-6d8947291859.png">
